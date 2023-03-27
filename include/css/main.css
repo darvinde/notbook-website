@@ -1,0 +1,199 @@
+:root {
+    --fontsize: 24px;
+    --lineheight: 16px;
+
+}
+
+@font-face {
+    font-family: 'Comic Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Comic Sans'), url('/include/css/fonts/comic-sans.woff') format('woff');
+}
+
+
+html {
+    height: 100%;
+    font-size: 100%;
+}
+body {
+    /* top right bottom left */
+    padding: calc(24px + 0px) 41px calc(24px * 1) 82px;
+    font-family: 'Comic Sans', sans-serif;
+
+    /*background: url("/include/img/dust_background_white_seamless.jpeg");*/
+
+    position: absolute;
+
+    background-size: auto calc(24px * 6), auto calc(24px * 6), auto 24px, auto 24px;
+    background-image: url(/include/img/css/book_top_6_lines_left.jpg), url(/include/img/css/book_top_6_lines_empty.jpg), url(/include/img/css/book_line_left.jpg), url(/include/img/css/book_line.jpg);
+    background-repeat: no-repeat, repeat-x, repeat-y, repeat;
+
+    width: 100%;
+
+    /*Sticky footer*/
+    height: 100%;
+    display: grid; 
+    grid-template-rows: auto 1fr auto; /*Auto: Height of Element,  1fr: remaining space*/
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        padding-left: 40px;
+        background-image: url(/include/img/css/book_top_6_lines_left_mobile.jpg), url(/include/img/css/book_top_6_lines_empty.jpg), url(/include/img/css/book_line_left_mobile.jpg), url(/include/img/css/book_line.jpg);
+    }
+}
+
+/*
+ TEXT
+*/
+
+a, a:visited {
+    color: black;
+}
+
+p, h1, h2, h3, pre {
+    padding: 0;
+    margin: calc(1em * 1.5) 0;
+}
+
+/*
+ 1em = 16px;
+ calc(1em * 1.5) = 24px;
+*/
+
+body { /* 1em*1em = 24px*/
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+h1 { /* 40px*1.2 = 48px = 2*24px*/
+    font-size: 40px;
+    line-height: 1.2;
+
+    margin: calc(0.5em * 1.2) 0;
+
+    min-height: calc(24px * 4);
+}
+
+h2 { /* 24px*1 = 24px OR 30px*0.8 = 24px */
+    font-size: 30px;
+    line-height: 0.8;
+
+    margin: calc(1em * 0.8) 0;
+}
+
+h3 { /* 20px*1.2 = 24px*/
+    font-size: 20px;
+    line-height: 1.2;
+
+    margin: calc(1em * 1.2) 0;
+}
+
+
+@media screen and (max-width: 600px) {
+    h1 { /* 24px*1 = 48px = 2*24px*/
+        font-size: 30px;
+        line-height: 1.6;
+        margin: calc(0.5em * 1.6) 0;
+    }
+    h2 { /* 24px*1 = 24px OR 30px*0.8 = 24px */
+        font-size: 24px;
+        line-height: 1;
+    
+        margin: calc(1em * 1) 0;
+    }
+}
+
+
+/*
+ ELEMENTS
+*/
+
+img {
+    width: auto;
+    height: calc(24px * 10);
+    object-fit: contain;
+    max-width: 100%;
+    transition:transform 0.25s ease;
+    transform-origin:center left;
+}
+img:hover {
+    transform: scale(1.1);
+}
+p:has(img){
+    padding: 0;
+    line-height: 0;
+}
+
+input, textarea {
+    padding: 5px;
+    width: 100%;
+}
+input[type="submit"], input{ /* 7px*2 + 34px = 48px = 24px*2*/
+    width: auto;
+    max-width: 200px;
+    height: 34px;
+    margin: 7px 0;
+}
+textarea {
+    height: 50vh;
+}
+footer {
+    padding: 24px 0;
+}
+.homebutton {
+    --size: 35px;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    left: 35px;
+    top: 5px;
+    height: var(--size);
+    width: var(--size);
+    background-size: var(--size);
+    background-image: url(/include/img/css/book_return_icon.png);
+    transition:transform 0.25s ease;
+    transform-origin:center left;
+}
+.homebutton:hover {
+    transform: scale(1.1);
+}
+
+.date {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+.icon {
+    position: relative;
+    top: -5px;
+}
+.icon img {
+    width: auto;
+    height: 48px;
+    position: relative;
+    top: 15px;
+    left: -5px;
+}
+.icon span {
+    font-weight: bold;
+}
+
+/*
+ COLORS
+*/
+
+.grey {
+    color: grey!important;
+}
+
+
+
+blockquote {
+    margin-left: 5px;
+    padding-left: 12px;
+    border-left: 4px solid #FDC8C0;
+}

@@ -1,0 +1,16 @@
+RewriteEngine on
+
+#Remove trailing slash from url
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+#Rewrite every url that is not a file or d to root index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d #Dont rewrite if folder exists
+RewriteRule ^.*$ /index.php [L,QSA]
+
+#Deny access to all .ini files
+<files *.ini>
+  order deny,allow
+  deny from all
+</files>
