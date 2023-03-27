@@ -6,3 +6,6 @@ https://story.darvin.de/
 
 ## More info
 https://projects.darvin.de/blog/notebook-style-website/
+
+##Installation
+Move folder to a php webserver. Create config.ini with mysql login data. Sqlite is not (yet) supported, if you want to support it, change some sql queries in the index.php.
